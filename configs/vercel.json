@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/scan/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/scan/process_blueprint.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "rewrites": [
+    { "source": "/api/scan", "destination": "/api/scan/index.js" },
+    { "source": "/api/(.*)", "destination": "/api/scan/index.js" },
+    { "source": "/(.*)",      "destination": "/index.html" }
+  ]
+}

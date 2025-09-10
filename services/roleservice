@@ -1,0 +1,13 @@
+// src/services/roleservice.js
+import axios from 'axios';
+
+const API_URL = '/api/assignRoles';
+
+export async function fetchAllUsers() {
+  const res = await axios.get(`${API_URL}?list=true`);
+  return res.data.users;
+}
+
+export async function updateRole(uid, role) {
+  await axios.post(API_URL, { uid, role });
+}
