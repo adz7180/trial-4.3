@@ -386,3 +386,10 @@ main {
   }
 }
 </style>
+<style>
+html, body, #app {
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
