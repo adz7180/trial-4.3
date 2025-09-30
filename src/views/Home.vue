@@ -387,9 +387,27 @@ main {
 }
 </style>
 <style>
+<style>
+/* Force the page to be scrollable globally */
 html, body, #app {
-  height: auto;
-  min-height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  height: auto !important;
+  min-height: 100% !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scroll-behavior: smooth;
 }
+
+/* Ensure your page wrapper can scroll if something above tries to block it */
+.app-container {
+  min-height: 100dvh !important;   /* safer than 100vh on mobile */
+  height: auto !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/* Optional: make sure the main area isn't accidentally clipping content */
+main {
+  overflow: visible !important;
+}
+</style>
+
